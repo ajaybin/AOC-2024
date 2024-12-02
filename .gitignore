@@ -1,11 +1,2 @@
-D1/P1.exe
-D1/P2.exe
-D1/input.txt
-D1/test.txt
-.vscode/launch.json
-.vscode/settings.json
-.vscode/tasks.json
-D2/test.txt
-D2/input.txt
-D2/P2.exe
-D2/P1.exe
+*.txt
+*.exe
