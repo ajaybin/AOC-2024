@@ -15,7 +15,7 @@ int main() {
   bool on{true};
   int sum{0};
   while(std::getline(ifile, line)) {
-    for (std::smatch sm; std::regex_search(line, sm, exp_regex);) {
+    for (std::smatch sm; std::regex_search(line, sm, exp_regex); line = sm.suffix()) {
       std::string exp = sm.str();
       if (exp == "do()"s) {
         on = true;
@@ -24,15 +24,13 @@ int main() {
       } else {
         if (on) {
           int product{1};
-          for (std::smatch num_match; std::regex_search(exp, num_match, num_regex);) {
+          for (std::smatch num_match; std::regex_search(exp, num_match, num_regex); exp = num_match.suffix()) {
             std::string num = num_match.str();
             product *= std::stoi(num);
-            exp = num_match.suffix();
           }
           sum += product;
         }
       }
-      line = sm.suffix();
     }
   }
   std::cout << sum << std::endl;
