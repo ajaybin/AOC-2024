@@ -1,9 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
-#include <algorithm>
-#include <numeric>
 #include <regex>
 
 int main() {
