@@ -37,21 +37,10 @@ int main() {
 
   int sum{0};
   for (auto vec : v) {
-    bool is_ord = true;
-    for (int i = 0; i < vec.size()-1; ++i) {
-        auto ele = vec[i];
-        if (m.contains(ele)) {
-            std::vector<int> order_v = m[ele];
-            for (int j = i+1; j < vec.size(); ++j) {
-                if (std::find(order_v.cbegin(), order_v.cend(), vec[j]) == order_v.cend()){
-                    is_ord = false;
-                }
-            }
-        } else {
-            is_ord = false;
-            break;
-        }
-    }
+    bool is_ord = std::is_sorted(vec.begin(), vec.end(),[&m](const int&a, const int&b)
+      {
+        return std::find(m[a].cbegin(), m[a].cend(), b) != m[a].cend();
+      });
     if (is_ord) {
         sum += vec[vec.size()/2];
     } else {
