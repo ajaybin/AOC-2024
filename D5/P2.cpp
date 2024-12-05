@@ -21,6 +21,7 @@ int main() {
     int c2 = std::stoi(line.substr(pos+1));
     m[c1].push_back(c2);
   }
+  ifile1.close();
 
   std::vector<std::vector<int>> v;
   while (std::getline(ifile2, line)) {
@@ -35,10 +36,11 @@ int main() {
 
     v.push_back(lv);
   }
+  ifile2.close();
 
   int sum{0};
   for (auto vec : v) {
-    bool is_ord = std::is_sorted(vec.begin(), vec.end(),[&m](const int&a, const int&b)
+    bool is_ord = std::is_sorted(vec.cbegin(), vec.cend(),[&m](const int&a, const int&b)
       {
         return std::find(m[a].cbegin(), m[a].cend(), b) != m[a].cend();
       });
@@ -54,8 +56,5 @@ int main() {
   }
 
   std::cout << sum << std::endl;
-
-  ifile1.close();
-  ifile2.close();
   return 0;
 }
