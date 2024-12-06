@@ -49,6 +49,12 @@
         "map": "cpp",
         "regex": "cpp",
         "bitset": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "charconv": "cpp",
+        "set": "cpp",
+        "format": "cpp",
+        "span": "cpp",
+        "text_encoding": "cpp",
+        "variant": "cpp"
     }
 }

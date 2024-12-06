@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <numeric>
 #include <map>
 #include <sstream>
 
@@ -21,7 +20,7 @@ int main() {
     m[c1].push_back(c2);
   }
   ifile1.close();
-  
+
   std::vector<std::vector<int>> v;
   while (std::getline(ifile2, line)) {
     std::vector<int> lv;
